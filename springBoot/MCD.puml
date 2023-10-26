@@ -1,0 +1,38 @@
+@startuml
+
+class Utilisateur {
+  - id : int
+  - nom_utilisateur : String
+  - mot_de_passe : String
+  - email : String
+}
+
+class Serie {
+  - id : int
+  - titre : String
+  - description : String
+}
+
+class Evenement {
+  - id : int
+  - date : Date
+  - valeur : float
+  - commentaire : String
+}
+
+class Tag {
+  - id : int
+  - libelle : String
+}
+
+class Partage {
+  - id : int
+  - type_permission : String
+}
+
+Utilisateur "1" -- "*" Serie : possède
+Serie "1" -- "*" Evenement : contient
+Evenement "1" -- "*" Tag : est associé à
+Utilisateur "1" -- "*" Partage : partage
+
+@enduml
